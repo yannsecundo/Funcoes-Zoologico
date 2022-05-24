@@ -4,7 +4,6 @@ function getSpeciesByIds(...ids) {
   if (ids === '') {
     return [];
   }
-  const { species } = data;
-  return species.filter(({ id }) => ids.includes(id));
+  return data.species.filter(({ id }) => ids.includes(id));
 }
 module.exports = getSpeciesByIds;
