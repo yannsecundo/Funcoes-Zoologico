@@ -1,11 +1,16 @@
 const { species } = require('../data/zoo_data');
 
+// encontrando a primeira residente elefante
 const getElephants = () =>
   species.find((specie) => specie.name === 'elephants');
 
+// ta pegando a media de idade dos elefante
 const averageAge = ({ residents }) =>
   residents.reduce((sum, elephant) => sum + elephant.age, 0) / residents.length;
 
+// terceiro caso = falando a idade do nome do elefante passado como parametro
+// segundo caso = colocando numa array todos o elefantes que tem o nome do elefante passado como parametro
+// primeiro = contando quantos elefantes tem no atributo redidents do zoo
 const computeData = (param, elephants) => {
   switch (param) {
   case 'count':
@@ -19,6 +24,9 @@ const computeData = (param, elephants) => {
   }
 };
 
+// função principal retorna o valor dos atributos do objeto elefante
+// primeioro if define se possui parametro ou não
+// segundo if verifica se o parametro é uma string
 const handlerElephants = (param) => {
   if (param === undefined) {
     return undefined;
@@ -32,5 +40,7 @@ const handlerElephants = (param) => {
   }
   return computeData(param, elephants);
 };
+
+console.log(handlerElephants('residents'));
 
 module.exports = handlerElephants;
